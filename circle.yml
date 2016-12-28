@@ -12,3 +12,7 @@ dependencies:
     - mkdir $APPPATH -p
   override:
     - rsync -av $HOMEPATH $APPPATH
+
+test:
+  override:
+    - go test ./...

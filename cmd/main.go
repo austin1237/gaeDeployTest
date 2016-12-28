@@ -5,6 +5,7 @@ package main
 import (
     "fmt"
     "net/http"
+    "github.com/austin1237/gaeDeployTest/message"
 )
 
 func init() {
@@ -12,5 +13,6 @@ func init() {
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
-    fmt.Fprint(w, "Hello, worldz!")
+    output := message.GetMessage()
+    fmt.Fprint(w, output)
 }

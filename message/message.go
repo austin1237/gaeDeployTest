@@ -1,5 +1,5 @@
 package message
 
 func GetMessage () string {
-  return "Hello World1"
+  return "Contious Deployment is cool"
 }

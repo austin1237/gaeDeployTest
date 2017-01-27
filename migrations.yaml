@@ -1,0 +1,8 @@
+defaults: &defaults
+  dialect: mysql
+  dir: ./migrations
+  table: _migrations
+
+development:
+  <<: *defaults
+  datasource: test2@/gaetest?parseTime=true&multiStatements=true

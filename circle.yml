@@ -17,6 +17,8 @@ dependencies:
 test:
   override:
     - go test ./...
+    - sudo service mysql stop
+
 
 deployment:
   production:
@@ -28,5 +30,6 @@ deployment:
       - cd $SRCPATH && sudo chmod -R 600 awstunnel.pem 
       - sudo /opt/google-cloud-sdk/bin/gcloud auth activate-service-account --key-file ${HOME}/gcloud-service-key.json
       - cd "$SRCPATH/cmd" && appcfg.py update --version=$(git rev-parse --short HEAD) --oauth2_access_token=$(sudo /opt/google-cloud-sdk/bin/gcloud auth print-access-token) ./
+      -      
       - cd $SRCPATH && ssh -f ec2-user@54.191.22.69 -i awstunnel.pem -L 3306:173.194.240.226:3306 -N
       - cd $SRCPATH && sql-migrate up -config=migrations.yaml -env=development

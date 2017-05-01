@@ -1,5 +1,5 @@
 package message
 
-func GetMessage () string {
-  return "Contious Deployment is dope"
+func GetMessage() string {
+	return "Master has been updated"
 }

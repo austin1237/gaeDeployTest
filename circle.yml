@@ -27,5 +27,5 @@ deployment:
       - sudo /opt/google-cloud-sdk/bin/gcloud  --quiet components update
       - echo $GCLOUD_SERVICE_KEY | base64 --decode > ${HOME}/gcloud-service-key.json
       - sudo /opt/google-cloud-sdk/bin/gcloud auth activate-service-account --key-file ${HOME}/gcloud-service-key.json
-      - cd "$SRCPATH/cmd" && sudo /opt/google-cloud-sdk/bin/gcloud app deploy --project="gaetest-153919" --quiet
+      - cd "$SRCPATH/cmd" && appcfg.py deploy -A="gaetest-153919" update ./
   
